@@ -6,7 +6,6 @@ class CarView(generics.ListAPIView):
     queryset = CarModel.objects.all()
     serializer_class = CarSerializer
     serializer_anonymous_class = UnAuthorizedCarSerializer
-    my_tags = ["Car"]
     
     def get_serializer_class(self):
 

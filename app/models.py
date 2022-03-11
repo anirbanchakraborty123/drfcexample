@@ -11,9 +11,6 @@ class Engine(models.Model):
 class Price(models.Model):
     price = models.IntegerField()
 
-    # def __str__(self):
-    #     return str(self.price)
-
 class CarModel(models.Model):
     car_name = models.CharField(max_length=32)
     engine = models.ForeignKey(Engine, on_delete=models.CASCADE, blank=True, null=True)

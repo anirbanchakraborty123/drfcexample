@@ -1,10 +1,8 @@
-from django.contrib.auth import get_user_model
-from rest_framework import serializers, validators
 from .models import CarModel,Engine,Price
-from django.contrib.auth.models import AnonymousUser
-from rest_framework_serializer_field_permissions import fields                                      # <--
-from rest_framework_serializer_field_permissions.serializers import FieldPermissionSerializerMixin  # <--
+from rest_framework_serializer_field_permissions import fields                                     
+from rest_framework_serializer_field_permissions.serializers import FieldPermissionSerializerMixin  
 from rest_framework_serializer_field_permissions.permissions import IsAuthenticated    
+from rest_framework import serializers
 
 class CarmodelengineSerializer(FieldPermissionSerializerMixin, serializers.ModelSerializer):
 
@@ -26,10 +24,10 @@ class CarSerializerAutheticated(FieldPermissionSerializerMixin, serializers.Mode
     
     engine = CarmodelengineSerializer(read_only=True)
     price = CarmodelPriceSerializer(read_only=True)
-    # price = fields.(permission_classes=(IsAuthenticated(), ))    
 
     class Meta:
         model = CarModel
         fields = ['id','car_name','engine','price']
         depth = 2
+
     

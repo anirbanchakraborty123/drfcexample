@@ -9,7 +9,10 @@ class Engine(models.Model):
     maker = models.CharField(max_length=30)
 
 class Price(models.Model):
-    price = models.PositiveIntegerField(null=True, blank=True)
+    price = models.IntegerField()
+
+    # def __str__(self):
+    #     return str(self.price)
 
 class CarModel(models.Model):
     car_name = models.CharField(max_length=32)
